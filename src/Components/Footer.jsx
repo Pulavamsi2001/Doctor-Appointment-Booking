@@ -1,53 +1,42 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='bg-gray-100 pb-5' >
-        <div className='bg-gray-100 flex p-5 '>
-            {/* left */}
-            <div className='w-1/2'>
-                <h1 className='text-3xl font-semibold'>DocFinder</h1>
-                <p className='mt-5'>At DocFinder, we simplify healthcare by connecting patients with qualified doctors through our easy-to-use appointment booking platform. Our mission is to enhance your healthcare experience with convenience and efficiency. Join us in making healthcare accessible for everyone!</p>
-            </div>
-
-
-            {/* right */}
-            <div className='w-1/2 flex justify-evenly'>
-                <div >
-                <h1 className='font-medium'>Quick Links</h1>
-                <ul>Home</ul>
-                <ul>About us</ul>
-                <ul>Services</ul>
-                <ul>Terms of Service</ul>
-                </div>
-                <div>
-                    <h1 className='font-medium'>GET IN TOUCH</h1>
-                    <ul>Phone: +91 9876543210</ul>
-                    <ul> Email: support@example.com</ul>
-                    <ul></ul>
-                    <ul></ul>
-                </div>
-      
-            </div>
-
-
+    <div className='bg-blue-50 pb-5'>
+      <div className=' flex flex-col md:flex-row p-5'>
+        {/* left */}
+        <div className='w-full md:w-1/2 mb-5 md:mb-0'>
+          <h1 className='text-3xl text-blue-800 font-bold '>DocFinder</h1>
+          <p className='mt-5'>
+            At DocFinder, we simplify healthcare by connecting patients with qualified doctors through our easy-to-use appointment booking platform. Our mission is to enhance your healthcare experience with convenience and efficiency. Join us in making healthcare accessible for everyone!
+          </p>
         </div>
 
-
-
-
-
-
-        <hr />
-        <div className='flex justify-center mt-6'>
-            <h1>Copyright 2024 @ Vamsi Krishna Pula - All Right Reserved.</h1>
+        {/* right */}
+        <div className='w-full md:w-1/2 flex flex-col md:flex-row justify-evenly'>
+          <div className='mb-5 md:mb-0'>
+            <h1 className='font-medium'>Quick Links</h1>
+            <ul>
+              <li>Home</li>
+              <li>About us</li>
+              <li>Services</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
+          <div>
+            <h1 className='font-medium'>GET IN TOUCH</h1>
+            <ul>
+              <li>Phone: +91 9876543210</li>
+              <li>Email: support@example.com</li>
+              <li>Adress: 123 Health St., Vijayawada, 521215</li>
+            </ul>
+          </div>
         </div>
-
-
-
-
+      </div>
+      <hr />
+      <p className='py-3 px-1 text-center'>Copyright 2024 Vamsi Krishna Pula - All Right Reserved.</p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
