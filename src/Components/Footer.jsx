@@ -15,7 +15,7 @@ const Footer = () => {
         {/* right */}
         <div className='w-full md:w-1/2 flex flex-col md:flex-row justify-evenly'>
           <div className='mb-5 md:mb-0'>
-            <h1 className='font-medium'>Quick Links</h1>
+            <h1 className='font-medium text-[17px]'>QUICK LINKS</h1>
             <ul>
               <li>Home</li>
               <li>About us</li>
@@ -24,7 +24,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h1 className='font-medium'>GET IN TOUCH</h1>
+            <h1 className='font-medium text-[17px]'>GET IN TOUCH</h1>
             <ul>
               <li>Phone: +91 9876543210</li>
               <li>Email: support@example.com</li>
