@@ -14,7 +14,7 @@ const SpecialityMenu = () => {
             <img
               src={item.image}
               alt={item.speciality}
-              className='w-full h-32 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105'
+              className='w-full h-auto object-cover transition-transform duration-300 ease-in-out transform hover:scale-105'
             />
             <p className='text-center text-sm mt-2'>{item.speciality}</p>
           </Link>
