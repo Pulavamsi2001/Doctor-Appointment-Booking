@@ -1,7 +1,9 @@
 import React from 'react';
 import { doctors } from '../assets/assets';
+import { useNavigate } from 'react-router-dom';
 
 const TopDoctors = () => {
+  const navigate = useNavigate();
   return (
     <div className='py-16'>
       <div className='container mx-auto text-center'>
@@ -9,7 +11,7 @@ const TopDoctors = () => {
         <p className='text-md text-gray-600 mb-8'>Simply browse through our extensive list of trusted doctors.</p>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
           {doctors.slice(0, 10).map((item, index) => (
-            <div key={index} className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div key={index} onClick={()=>navigate(`/appointment/${item._id}`)} className='bg-white rounded-lg shadow-lg cursor-pointer overflow-hidden hover:shadow-xl transition-shadow duration-300'>
               <img src={item.image} alt="Doctor" className='w-full h-auto object-cover bg-blue-50' />
               <div className='p-6'>
                 <div className='mb-0'>
@@ -25,7 +27,7 @@ const TopDoctors = () => {
           ))}
         </div>
       </div>
-      <button className='px-5 py-2 rounded-full bg-blue-300 mt-10 flex items-center mx-auto'>More Doctors</button>
+      <button onClick={()=>navigate(`/doctors`)} className='px-5 py-2 rounded-full bg-blue-50 mt-10 flex items-center mx-auto'>More Doctors</button>
     </div>
   );
 };
