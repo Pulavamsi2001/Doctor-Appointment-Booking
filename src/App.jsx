@@ -3,13 +3,12 @@ import {Route, Routes} from 'react-router-dom'
 import About from './Pages/About'
 import Home from './Pages/Home'
 import Doctors from './Pages/Doctors'
-import Login from './Pages/Login'
 import MyAppointments from './Pages/MyAppointments'
 import Contact from './Pages/Contact'
 import Myprofile from './Pages/Myprofile'
 import Appointment from './Pages/Appointment'
 import Navbar from './Components/Navbar'
-
+import LoginPage from './Pages/LoginPage'
 
 const App = () => {
   return (
@@ -19,7 +18,6 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/myappointments' element={<MyAppointments />} />
         <Route path='/appointment/docID' element={<Appointment />} />
@@ -27,6 +25,8 @@ const App = () => {
         <Route path='/doctors/:speciality' element={<Doctors />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/myprofile' element={<Myprofile />} />
+        <Route path='/login' element={<LoginPage />} />
+        
 
 
       </Routes>

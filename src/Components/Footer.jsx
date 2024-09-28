@@ -6,7 +6,7 @@ const Footer = () => {
       <div className=' flex flex-col md:flex-row p-5'>
         {/* left */}
         <div className='w-full md:w-1/2 mb-5 md:mb-0'>
-          <h1 className='text-3xl text-blue-800 font-bold '>DocFinder</h1>
+          <h1 className='text-3xl text-blue-800 font-bold  '>DocFinder</h1>
           <p className='mt-5'>
             At DocFinder, we simplify healthcare by connecting patients with qualified doctors through our easy-to-use appointment booking platform. Our mission is to enhance your healthcare experience with convenience and efficiency. Join us in making healthcare accessible for everyone!
           </p>

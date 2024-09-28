@@ -1,20 +1,13 @@
 import React from 'react'
+import AboutUs from '../Components/AboutUs'
+import Footer from '../Components/Footer'
 
 const About = () => {
   return (
-    <div className='display-flex justify-between'>
-      {/* left */}
-        <div></div>
 
-
-      {/* right */}
-
-        <div>
-          <h2>ABOUT US</h2>
-          <p>Welcome to Prescripto, your trusted partner in managing your healthcare needs conveniently and efficiently. At Prescripto, we understand the challenges individuals face when it comes to scheduling doctor appointments and managing their health records.</p>
-
-
-        </div>
+    <div>
+      <AboutUs />
+      <Footer />
     </div>
   )
 }
