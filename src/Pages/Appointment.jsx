@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
 import { assets } from '../assets/assets';
+import Footer from '../Components/Footer';
 
 
 const Appointment = () => {
@@ -47,7 +48,9 @@ const Appointment = () => {
 
 
 
-      <div className=' my-10 text-center text-2xl font-medium text-gray-600 '> <p>----------- Booking Slots -----------</p> <br /> <h1>Coming Soon</h1></div>
+      <div className=' my-10 text-center text-2xl font-medium text-gray-600 '> <p>---- Booking Slots ----</p> <br /> <h1>Coming Soon</h1></div>
+
+      <Footer />
 
     </div>
   );
