@@ -10,6 +10,7 @@ const Doctors = () => {
   // State to store filtered doctors
   const [filteredDoctors, setFilteredDoctors] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedSpeciality, setSelectedSpeciality] = useState('Select Speciality');
 
   // Function to get filtered doctors based on the speciality
   const getFilteredDoctors = () => {
@@ -26,10 +27,17 @@ const Doctors = () => {
   const handleFilterClick = (filter) => {
     if (speciality === filter) {
       navigate('/doctors');
+      setSelectedSpeciality('Select Speciality');
     } else {
       navigate(`/doctors/${filter}`);
+      setSelectedSpeciality(filter);
     }
     setIsDropdownOpen(false); // Close dropdown after selection
+  };
+
+  const handleClearSelection = () => {
+    navigate('/doctors');
+    setSelectedSpeciality('Select Speciality');
   };
 
   return (
@@ -49,11 +57,18 @@ const Doctors = () => {
 
         {/* Dropdown for mobile screens */}
         <div className='sm:hidden relative'>
-          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className='p-2 pr-4 border rounded-md hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>
-            Select Speciality
-          </button>
+          <div className='flex items-center'>
+            <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className='p-2 pr-4 border rounded-md hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>
+              {selectedSpeciality}
+            </button>
+            {selectedSpeciality !== 'Select Speciality' && (
+              <button onClick={handleClearSelection} className='ml-2 p-2 text-red-700 border rounded-md hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>
+                &#x2715; {/* Cross mark */}
+              </button>
+            )}
+          </div>
           {isDropdownOpen && (
-            <div className='absolute mt-2 py-1 px-2 w-44 bg-white border rounded-md shadow-lg'>
+            <div className='absolute mt-2 w-64 bg-white border rounded-md shadow-lg'>
               <p onClick={() => handleFilterClick('General physician')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>General physician</p>
               <p onClick={() => handleFilterClick('Gynecologist')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>Gynecologist</p>
               <p onClick={() => handleFilterClick('Dermatologist')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>Dermatologist</p>
