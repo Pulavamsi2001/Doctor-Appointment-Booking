@@ -53,7 +53,7 @@ const Doctors = () => {
             Select Speciality
           </button>
           {isDropdownOpen && (
-            <div className='absolute mt-2 w-40 bg-white border rounded-md shadow-lg'>
+            <div className='absolute mt-2 py-1 px-2 w-44 bg-white border rounded-md shadow-lg'>
               <p onClick={() => handleFilterClick('General physician')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>General physician</p>
               <p onClick={() => handleFilterClick('Gynecologist')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>Gynecologist</p>
               <p onClick={() => handleFilterClick('Dermatologist')} className='p-2 pr-4 hover:bg-gray-100 cursor-pointer transition duration-200 ease-in-out'>Dermatologist</p>
