@@ -38,7 +38,7 @@ const Appointment = () => {
             <p className='flex gap-1 font-medium'>About <img className='w-3' src={assets.info_icon} alt="" /> </p>
             <p className='text-gray-700'>{docInfo.about}</p>
           </div>
-          <p className='text-gray-700 font-medium'>Appointment fee: <span className='text-black'>₹{docInfo.fees}</span></p>
+          <p className='text-gray-600 text-lg font-medium'>Appointment fee: <span className='text-black'>₹{docInfo.fees}</span></p>
          </div>
       </div>
 
