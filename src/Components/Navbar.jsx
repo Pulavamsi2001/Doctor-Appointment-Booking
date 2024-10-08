@@ -12,7 +12,7 @@ const Navbar = () => {
       <h1 onClick={() => navigate('/')} className='text-3xl text-blue-800 font-bold cursor-pointer'>DocFinder</h1>
 
       {/* Navigation Links */}
-      <ul className={`fixed top-0 left-0 w-full h-1/3 bg-white z-50 flex  items-center justify-center gap-5 font-medium transform ${showMenu ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:static md:flex md:flex-1 md:justify-center md:items-center md:gap-5 md:bg-transparent md:translate-x-0`}>
+      <ul className={`fixed top-0 left-0 w-full h-20 bg-white z-50 flex  items-center justify-center gap-5 font-medium transform ${showMenu ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:static md:flex md:flex-1 md:justify-center md:items-center md:gap-5 md:bg-transparent md:translate-x-0`}>
         <button onClick={() => setShowMenu(false)} className='absolute top-4 right-4 focus:outline-none md:hidden'>
           <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
             <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12'></path>
