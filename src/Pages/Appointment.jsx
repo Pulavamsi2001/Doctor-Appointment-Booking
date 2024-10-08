@@ -41,17 +41,28 @@ const Appointment = () => {
 
       slotsByDay[dayKey] = { date: dayDate, slots: [] };
 
+      // Check if it's Sunday
+      const isSunday = dayKey === 'SUN';
+
       while (currentDate < endTime) {
         const formattedTime = {
           time: currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
           available: true
         };
 
-        // Skip the lunch break from 12:30 PM to 2:00 PM
+        // Skip lunch break from 12:30 PM to 2:00 PM
         const hours = currentDate.getHours();
         const minutes = currentDate.getMinutes();
-        if (!(hours === 12 && minutes >= 30) && !(hours === 13) && !(hours === 14 && minutes < 0)) {
-          slotsByDay[dayKey].slots.push(formattedTime);
+
+        // For Sunday, only allow slots until 12:30 PM
+        if (isSunday) {
+          if (currentDate.getHours() < 12 || (currentDate.getHours() === 12 && currentDate.getMinutes() < 30)) {
+            slotsByDay[dayKey].slots.push(formattedTime);
+          }
+        } else {
+          if (!(hours === 12 && minutes >= 30) && !(hours === 13) && !(hours === 14 && minutes < 0)) {
+            slotsByDay[dayKey].slots.push(formattedTime);
+          }
         }
 
         currentDate.setMinutes(currentDate.getMinutes() + 30);
@@ -109,7 +120,7 @@ const Appointment = () => {
           {Object.keys(docSlots).map((day, dayIndex) => (
             <button
               key={day}
-              className={`flex-shrink-0 text-black border border-gray-500 px-4 py-2 rounded-lg mr-2 ${selectedDayIndex === dayIndex ? 'bg-primary text-white' : 'bg-gray-50'}`}
+              className={`flex-shrink-0 text-black border border-gray-500 px-4 py-4 rounded-lg mr-2 ${selectedDayIndex === dayIndex ? 'bg-primary text-white' : 'bg-gray-50'}`}
               onClick={() => {
                 setSelectedDayIndex(dayIndex);
                 setSlotIndex(0);
@@ -127,7 +138,7 @@ const Appointment = () => {
               docSlots[Object.keys(docSlots)[selectedDayIndex]].slots.map((slot, index) => (
                 <button
                   key={`${Object.keys(docSlots)[selectedDayIndex]}-${slot.time}`} // Unique key for each slot
-                  className={`flex-shrink-0 text-gray-800 px-4 py-2 rounded-full m-1 border border-gray-500 ${slot.available ? (index === slotIndex ? 'bg-primary text-white' : 'bg-gray-50') : 'bg-gray-300'}`}
+                  className={`flex-shrink-0 text-gray-800 px-4 py-2 rounded-2xl m-1 border border-gray-500 ${slot.available ? (index === slotIndex ? 'bg-primary text-white' : 'bg-gray-50') : 'bg-gray-300'}`}
                   onClick={() => slot.available && setSlotIndex(index)}
                 >
                   {slot.time}
