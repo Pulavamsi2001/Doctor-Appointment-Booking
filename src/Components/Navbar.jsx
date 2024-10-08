@@ -9,7 +9,29 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400 px-4 md:px-8'>
-      <h1 onClick={()=>navigate('/')} className='text-3xl text-blue-800 font-bold cursor-pointer'>DocFinder</h1>
+      <h1 onClick={() => navigate('/')} className='text-3xl text-blue-800 font-bold cursor-pointer'>DocFinder</h1>
+
+      {/* Navigation Links */}
+      <ul className={`fixed top-0 left-0 w-full h-1/3 bg-white z-50 flex  items-center justify-center gap-5 font-medium transform ${showMenu ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:static md:flex md:flex-1 md:justify-center md:items-center md:gap-5 md:bg-transparent md:translate-x-0`}>
+        <button onClick={() => setShowMenu(false)} className='absolute top-4 right-4 focus:outline-none md:hidden'>
+          <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12'></path>
+          </svg>
+        </button>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
+          <li className='py-1'> HOME </li>
+        </NavLink>
+        <NavLink to='/doctors' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
+          <li className='py-1'> ALL DOCTORS </li>
+        </NavLink>
+        <NavLink to='/about' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
+          <li className='py-1'> ABOUT </li>
+        </NavLink>
+        <NavLink to='/contact' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
+          <li className='py-1'> CONTACT </li>
+        </NavLink>
+      </ul>
+
       <div className='flex items-center gap-4'>
         {
           token ? (
@@ -51,27 +73,6 @@ const Navbar = () => {
           )}
         </button>
       </div>
-
-      {/* Navigation Links */}
-      <ul className={`fixed top-0 left-0 w-1/2 h-1/3 bg-white flex flex-col items-center justify-center gap-5 font-medium transform ${showMenu ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:static md:flex md:flex-row md:items-start md:gap-5 md:bg-transparent md:translate-x-0`}>
-        <button onClick={() => setShowMenu(false)} className='absolute top-4 right-4 focus:outline-none md:hidden'>
-          <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12'></path>
-          </svg>
-        </button>
-        <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
-          <li className='py-1'> HOME </li>
-        </NavLink>
-        <NavLink to='/doctors' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
-          <li className='py-1'> ALL DOCTORS </li>
-        </NavLink>
-        <NavLink to='/about' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
-          <li className='py-1'> ABOUT </li>
-        </NavLink>
-        <NavLink to='/contact' className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setShowMenu(false)}>
-          <li className='py-1'> CONTACT </li>
-        </NavLink>
-      </ul>
     </div>
   );
 };
