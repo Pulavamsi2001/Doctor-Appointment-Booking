@@ -138,7 +138,7 @@ const Appointment = () => {
               docSlots[Object.keys(docSlots)[selectedDayIndex]].slots.map((slot, index) => (
                 <button
                   key={`${Object.keys(docSlots)[selectedDayIndex]}-${slot.time}`} // Unique key for each slot
-                  className={`flex-shrink-0 text-gray-600 px-4 py-2 text-sm rounded-2xl m-1 border border-gray-500 ${slot.available ? (index === slotIndex ? 'bg-primary text-white' : 'bg-gray-50') : 'bg-gray-300'}`}
+                  className={`flex-shrink-0 text-gray-600 px-4 py-2 font-light rounded-2xl m-1 border border-gray-500 ${slot.available ? (index === slotIndex ? 'bg-primary text-white' : 'bg-gray-50') : 'bg-gray-300'}`}
                   onClick={() => slot.available && setSlotIndex(index)}
                 >
                   {slot.time}
