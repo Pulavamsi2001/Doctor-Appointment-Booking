@@ -46,7 +46,14 @@ const Appointment = () => {
           time: currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
           available: true
         };
-        slotsByDay[dayKey].slots.push(formattedTime);
+
+        // Skip the lunch break from 12:30 PM to 2:00 PM
+        const hours = currentDate.getHours();
+        const minutes = currentDate.getMinutes();
+        if (!(hours === 12 && minutes >= 30) && !(hours === 13) && !(hours === 14 && minutes < 0)) {
+          slotsByDay[dayKey].slots.push(formattedTime);
+        }
+
         currentDate.setMinutes(currentDate.getMinutes() + 30);
       }
     }
