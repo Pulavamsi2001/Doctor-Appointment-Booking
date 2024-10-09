@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
+import Footer from '../Components/Footer';
 
 const Doctors = () => {
   const { speciality } = useParams();
@@ -43,7 +44,7 @@ const Doctors = () => {
   return (
     <div>
       <p className='text-gray-600'>Browse through the doctors specialist.</p>
-      <div className='flex flex-col sm:flex-row items-start gap-11 mt-5'>
+      <div className='flex flex-col sm:flex-row items-start gap-11 mt-5 mb-14'>
 
         {/* Filters list for larger screens */}
         <div className='hidden sm:flex flex-col gap-4 text-sm text-gray-600'>
@@ -102,6 +103,7 @@ const Doctors = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

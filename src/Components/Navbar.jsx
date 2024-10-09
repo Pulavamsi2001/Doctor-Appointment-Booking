@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400 px-4 md:px-8'>
+    <div className='flex items-center justify-between text-sm sm:py-0 py-4 mb-5 border-b border-b-gray-400 px-4 md:px-8'>
       <h1 onClick={() => navigate('/')} className='text-3xl text-blue-800 font-bold cursor-pointer select-none'>DocFinder</h1>
 
       {/* Navigation Links */}
